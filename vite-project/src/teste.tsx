@@ -1,27 +1,19 @@
 import { useState } from "react";
 
 function App() {
-  const [item, setItem] = useState("");
-  const [lista, setLista] = useState<string[]>([]);
+  const [mostrar, setMostrar] = useState(false);
 
-  const adicionar = () => {
-    if (item.trim() === "") return;
-    setLista([...lista, item]);
-    setItem("");
-  };
+  function toggle() {
+    setMostrar(!mostrar);
+  }
 
   return (
     <div>
-      <h2>Itens: {lista.length}</h2>
+      <button onClick={toggle}>
+        {mostrar ? "Esconder" : "Mostrar"}
+      </button>
 
-      <input value={item} onChange={(e) => setItem(e.target.value)} />
-      <button onClick={adicionar}>Adicionar</button>
-
-      <ul>
-        {lista.map((i, index) => (
-          <li key={index}>{i}</li>
-        ))}
-      </ul>
+      {mostrar && <p>Olá React</p>}
     </div>
   );
 }

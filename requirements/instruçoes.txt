@@ -1,6 +1,6 @@
 npm create vite@latest
 
-cd praticando
+cd vite-project
 
 npm install
 
