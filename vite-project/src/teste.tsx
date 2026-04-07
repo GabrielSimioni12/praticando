@@ -1,21 +1,22 @@
 import { useState } from "react";
 
 function App() {
-  const [mostrar, setMostrar] = useState(false);
+  const [input, setInput] = useState("")
 
-  function toggle() {
-    setMostrar(!mostrar);
-  }
-
-  return (
-    <div>
-      <button onClick={toggle}>
-        {mostrar ? "Esconder" : "Mostrar"}
-      </button>
-
-      {mostrar && <p>Olá React</p>}
-    </div>
-  );
+function receba(e) {
+  setInput(e.target.value)
 }
+  return(
+      <div>
+          <input
+              type="text"
+              value={input}
+              onChange={receba}
+              placeholder="digite algo!"
+          />
 
-export default App;
+          <p> voce digitou: {input}</p>
+      </div>
+  )
+}
+  export default App
