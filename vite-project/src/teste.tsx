@@ -1,26 +1,32 @@
 import { useState } from "react";
 
-function App() {
-  const [input, setInput] = useState("")
+export default function InputTarefas() {
+  const [input, setInput] = useState<string>("");
+  const [tarefas, setTarefas] = useState<string[]>([]);
 
-function receba(e) {
-  setInput(e.target.value)
+  function adicionarTarefa() {
+    if (input.trim() === "") return;
+
+    setTarefas([...tarefas, input]);
+    setInput("");
+  }
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="escreva suas tarefas"
+      />
+
+      <button onClick={adicionarTarefa}>Adicionar</button>
+
+      <ul>
+        {tarefas.map((tarefa, index) => (
+          <li key={index}>{tarefa}</li>
+        ))}
+      </ul>
+    </div>
+  );
 }
-  return(
-      <div>
-          <input
-              type="text"
-              value={input}
-              onChange={receba}
-              placeholder="digite algo!"
-          />
-
-          <p> voce digitou: {input}</p>
-      </div>
-  )
-}
-  export default App
-
-
-
-  
