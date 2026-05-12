@@ -1,10 +1,10 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import Teste from './teste'
+import Produto from './teste.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Teste />
+    <Produto mouse={170.00} teclado={300} monitor={500} perifericos='meus perifericos'   />
   </StrictMode>,
 )
