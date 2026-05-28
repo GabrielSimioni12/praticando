@@ -5,6 +5,7 @@ import './index.css'
 import App from './teste'
 
 
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />

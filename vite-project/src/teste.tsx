@@ -1,31 +1,21 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 const App = () => {
-  const [darkMode, setDarkMode] = useState<boolean>(false)
 
-  const alterar = () => {
-    setDarkMode(!darkMode)
-  }
+const [mostrar, setmostrar] = useState<boolean>(false)
+
+const mostrarMensagem = () => {
+  setmostrar(!mostrar)
+}
+
 
   return (
-    <div
-      style={{
-        color: darkMode ? 'red' : 'blue',
-        height: '100vh'
-      }}
-    >
-      <h1 style={{color: darkMode ? 'yellow' : 'black'}}>Ativar modo escuro</h1>
+    <div>
+      <h1>clique para exibir a mensagem</h1>
+      <button onClick={mostrarMensagem}>clique aqui para exibir a mensagem</button>
 
-      <button
-        onClick={alterar}
-        style={{
-          color: darkMode ? 'red' : 'blue'
-        }}
-      >
-        Clique aqui para alterar o tema
-      </button>
-
-      <h1>Mudado com sucesso</h1>
+      {mostrar && <h1>mensagem secreta</h1>}
+  
     </div>
   )
 }
