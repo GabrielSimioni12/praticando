@@ -1,27 +1,33 @@
+import { useState } from 'react'
 
-type Produto = {
-  mouse: number
-  teclado: number 
-  monitor: number
-  perifericos: string
-}
+const App = () => {
+  const [darkMode, setDarkMode] = useState<boolean>(false)
 
+  const alterar = () => {
+    setDarkMode(!darkMode)
+  }
 
-const Produto = ({mouse, teclado, monitor, perifericos}: Produto)  => {
+  return (
+    <div
+      style={{
+        color: darkMode ? 'red' : 'blue',
+        height: '100vh'
+      }}
+    >
+      <h1 style={{color: darkMode ? 'yellow' : 'black'}}>Ativar modo escuro</h1>
 
-  return ( 
-      <div>
-        <h1>{perifericos}</h1>
-        <p>{mouse}</p>
-        <p>{teclado}</p>
-        <p>{monitor}</p>
+      <button
+        onClick={alterar}
+        style={{
+          color: darkMode ? 'red' : 'blue'
+        }}
+      >
+        Clique aqui para alterar o tema
+      </button>
 
-        
-      </div>
+      <h1>Mudado com sucesso</h1>
+    </div>
   )
 }
 
-export default Produto
-
-
-
+export default App
