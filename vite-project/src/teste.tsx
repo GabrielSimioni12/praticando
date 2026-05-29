@@ -1,25 +1,33 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 const App = () => {
-  const [numeros, setNumeros] = useState<number[]>([
-    1, 2, 3, 4, 5, 6, 7
-  ])
 
-  const adicionarNovo = () => {
-    setNumeros([...numeros, 10])
-  }
+const [itens, setItens] = useState<number[]>([])
+const [novo, setNovo] = useState<string>('')
+
+const adiconarNovoId = () => {
+  setItens([...itens, Number(novo)])
+  setNovo('')
+}
+
 
   return (
     <div>
-      <h1>Lista de números</h1>
+      <h1>clique para adiconar um novo ID</h1>
+      <input
+        type='number'
+        placeholder='clique aqui para adicionar um novo ID'
+        value={novo}
+        onChange={(e) => setNovo((e.target.value))}
+      />
+      <button onClick={adiconarNovoId}>+</button>
 
-      <button onClick={adicionarNovo}>
-        +
-      </button>
+      {itens.map((item, index) => (
+        <p key={index}>{item}</p>
+      )
+    )}
 
-      {numeros.map((numero, index) => (
-        <p key={index}>{numero}</p>
-      ))}
+
     </div>
   )
 }
