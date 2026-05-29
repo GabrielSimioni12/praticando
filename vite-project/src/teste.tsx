@@ -1,21 +1,25 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const App = () => {
+  const [numeros, setNumeros] = useState<number[]>([
+    1, 2, 3, 4, 5, 6, 7
+  ])
 
-const [mostrar, setmostrar] = useState<boolean>(false)
-
-const mostrarMensagem = () => {
-  setmostrar(!mostrar)
-}
-
+  const adicionarNovo = () => {
+    setNumeros([...numeros, 10])
+  }
 
   return (
     <div>
-      <h1>clique para exibir a mensagem</h1>
-      <button onClick={mostrarMensagem}>clique aqui para exibir a mensagem</button>
+      <h1>Lista de números</h1>
 
-      {mostrar && <h1>mensagem secreta</h1>}
-  
+      <button onClick={adicionarNovo}>
+        +
+      </button>
+
+      {numeros.map((numero, index) => (
+        <p key={index}>{numero}</p>
+      ))}
     </div>
   )
 }
