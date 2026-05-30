@@ -1,33 +1,25 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 const App = () => {
 
-const [itens, setItens] = useState<number[]>([])
-const [novo, setNovo] = useState<string>('')
 
-const adiconarNovoId = () => {
-  setItens([...itens, Number(novo)])
-  setNovo('')
-}
+const produtos = [
+  'Mouse',
+  'Teclado',
+  'Monitor',
+  'Notebook',
+  'headset'
+]
 
+
+const novaLista = produtos.filter(cu => cu !== 'Monitor')
 
   return (
     <div>
-      <h1>clique para adiconar um novo ID</h1>
-      <input
-        type='number'
-        placeholder='clique aqui para adicionar um novo ID'
-        value={novo}
-        onChange={(e) => setNovo((e.target.value))}
-      />
-      <button onClick={adiconarNovoId}>+</button>
-
-      {itens.map((item, index) => (
-        <p key={index}>{item}</p>
-      )
-    )}
-
-
+      {novaLista.map((c, index) => (
+        <p key={index}>{c}</p>
+      ))}
+       {novaLista.length}
     </div>
   )
 }
