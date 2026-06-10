@@ -1,25 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+type Produto = {
+  id: number
+  nome: string
+  preco: number
+}
 
 const App = () => {
 
-
-const produtos = [
-  'Mouse',
-  'Teclado',
-  'Monitor',
-  'Notebook',
-  'headset'
-]
-
-
-const novaLista = produtos.filter(cu => cu !== 'Monitor')
+const [product, setProduct] = useState<Produto[]>([{
+  id: 2893839389,
+  nome: 'TV',
+  preco: 1200
+},
+{
+  id: 32525522112,
+  nome: 'geladeira',
+  preco: 2000
+}
+])
 
   return (
     <div>
-      {novaLista.map((c, index) => (
-        <p key={index}>{c}</p>
-      ))}
-       {novaLista.length}
+        {product.map((t, index) => (
+          <div key={index}>
+              <p>{t.id} {t.nome} {t.preco}</p>
+          </div>
+        ))}
     </div>
   )
 }
