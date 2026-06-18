@@ -1,34 +1,22 @@
 import React, { useState } from 'react'
 
-type Produto = {
-  id: number
-  nome: string
-  preco: number
+const Botao = () => {
+
+const [botao, setBotao] = useState<number>(0)
+
+
+
+const adicionar = () => {
+  setBotao(botao + 1)
 }
 
-const App = () => {
-
-const [product, setProduct] = useState<Produto[]>([{
-  id: 2893839389,
-  nome: 'TV',
-  preco: 1200
-},
-{
-  id: 32525522112,
-  nome: 'geladeira',
-  preco: 2000
-}
-])
 
   return (
     <div>
-        {product.map((t, index) => (
-          <div key={index}>
-              <p>{t.id} {t.nome} {t.preco}</p>
-          </div>
-        ))}
+      <button onClick={adicionar}>clique aqui</button>
+      <p>{botao}</p>
     </div>
   )
 }
 
-export default App
+export default Botao
