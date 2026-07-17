@@ -1,49 +1,24 @@
 import React, { useState } from 'react'
-import { nomeContext, receberContext, temaContext } from './NomeContext'
+import { TemaContext } from './TemaContext'
+import Header from './Header'
 import Perfil from './Perfil'
-import Recebedor from './recebedor'
-import Tema from './Tema'
+import Footer from './Footer'
 
-
-  type Propss = {
-  nome: string
-}
-
- export type Usuario = {
-  usuario: Propss
-}
 
 const App = () => {
 
-
-const [nome, setNome] = useState('Gabriel')
-
-const [receber, setReceber] = useState(0)
-
-const [tema, setTema] = useState<boolean>(false)
-
-
-
+const [nome] = useState('Gabriel')
+const [idade] = useState(19)
 
 
 
   return (
     <div>
-      <nomeContext.Provider value={{ nome,  setNome }}>
-          <Perfil />
-      </nomeContext.Provider>
-
-
-      
-      <receberContext.Provider value={{receber, setReceber}}>
-          <Recebedor />
-      </receberContext.Provider>
-
-        <temaContext.Provider value={{tema, setTema}}>
-        <Tema />
-        </temaContext.Provider>
-
-      
+        <TemaContext.Provider value={{nome, idade}}>
+            <Header />
+            <Perfil />
+            <Footer />
+        </TemaContext.Provider>
     </div>
   )
 }

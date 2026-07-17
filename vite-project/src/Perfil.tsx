@@ -1,19 +1,15 @@
 import React, { useContext } from 'react'
-import type { Usuario } from './App'
-import { nomeContext } from './NomeContext'
-
+import { TemaContext } from './TemaContext'
 
 const Perfil = () => {
 
-const {nome, setNome} = useContext(nomeContext)
+const {nome, idade} = useContext(TemaContext)
 
 
   return (
     <div>
-        <h3>{nome}</h3>
-
-        <button onClick={() => setNome('maria')}>clqiue aqui</button>
-
+        <p>nome {nome}</p>
+        <p>idade {idade}</p>
     </div>
   )
 }
